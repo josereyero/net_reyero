@@ -1,0 +1,25 @@
+<?php
+/**
+ * @param
+ * Reyero.net: Custom modules base API and tools
+ */
+
+/**
+ * Implements hook_system_info_alter()
+ */
+function net_reyero_system_info_alter(&$info, $file, $type) {
+  // Mark some modules as belonging to the 'custom' package:
+  // - Modules in sites/all/modules/custom
+  // - Module info file contains 'custom = true'
+  if (!empty($info['custom']) || $type == 'module' && preg_match('/^sites\/all\/modules\/custom/', $file->filename)) {
+    $info['project'] = 'custom';
+  }
+}
+
+/**
+ * Implements hook_update_projects_alter().
+ */
+function net_reyero_update_projects_alter(&$projects) {
+  // Remove custom projects from drupal.org updates.
+  unset($projects['custom']);
+}
