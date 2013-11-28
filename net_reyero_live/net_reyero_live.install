@@ -8,6 +8,7 @@
  * Implements hook_enable().
  */
 function net_reyero_live_enable() {
+  /*
   module_disable(array(
     'net_reyero_devel',
     'devel',
@@ -18,6 +19,7 @@ function net_reyero_live_enable() {
     'update',
     'reroute_email',
   ));
+  */
   // Set variables.
   variable_set('cache', 1);
   variable_set('block_cache', TRUE);

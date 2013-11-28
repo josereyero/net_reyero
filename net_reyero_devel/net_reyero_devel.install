@@ -9,10 +9,11 @@
  */
 function net_reyero_devel_enable() {
   // Disable modules
+  /*
   module_disable(array(
     'net_reyero_live',
-  ));
-
+  ), FALSE);
+  */
   // Set variables
   variable_set('cache', 0);
   variable_set('block_cache', FALSE);
