@@ -1,0 +1,10 @@
+name = Site audit - Reyero.net
+description = Enable some tools for getting extended site information.
+package = "Reyero.net - Util"
+project = net_reyero
+core = 7.x
+dependencies[] = schema
+dependencies[] = missing_module
+dependencies[] = module_summary
+dependencies[] = variable_admin
+

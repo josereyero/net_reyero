@@ -1,0 +1,9 @@
+name = Admin tools - Reyero.net
+description = Enable some basic site administration modules.
+package = "Reyero.net - Util"
+project = net_reyero
+core = 7.x
+dependencies[] = admin_menu
+dependencies[] = admin_menu_toolbar
+dependencies[] = module_dep_toggle
+dependencies[] = module_filter

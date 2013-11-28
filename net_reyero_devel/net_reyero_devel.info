@@ -1,7 +1,11 @@
 name = Devel helper - Reyero.net
-description = Print out queries marked as 'debug'.
+description = "Enable development modules and settings. Do not enable on production sites."
 package = "Reyero.net - Util"
 project = net_reyero
 core = 7.x
-configure = admin/config/development/devel
+dependencies[] = contextual
 dependencies[] = devel
+dependencies[] = field_ui
+dependencies[] = reroute_email
+dependencies[] = update
+dependencies[] = net_reyero_custom

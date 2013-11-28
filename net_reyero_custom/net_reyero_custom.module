@@ -29,6 +29,5 @@ function net_reyero_custom_update_projects_alter(&$projects) {
  */
 function net_reyero_custom_l10n_update_projects_alter(&$projects) {
   // Remove custom projects from drupal.org updates.
-  dpm($projects['net_reyero']);
   unset($projects['net_reyero']);
 }

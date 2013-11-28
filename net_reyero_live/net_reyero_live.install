@@ -1,0 +1,29 @@
+<?php
+/**
+ * @file
+ * net_reyero_devel install file
+ */
+
+/**
+ * Implements hook_enable().
+ */
+function net_reyero_live_enable() {
+  module_disable(array(
+    'net_reyero_devel',
+    'devel',
+    'admin_devel'.
+    'git_deploy',
+    'schema',
+    'drupalforfirebug',
+    'update',
+    'reroute_email',
+  ));
+  // Set variables.
+  variable_set('cache', 1);
+  variable_set('block_cache', TRUE);
+  variable_set('page_compression', TRUE);
+  variable_set('preprocess_css', 1);
+  variable_set('preprocess_js', 1);
+  variable_set('error_level', ERROR_REPORTING_HIDE);
+}
+

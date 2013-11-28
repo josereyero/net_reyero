@@ -1,0 +1,5 @@
+name = Live mode - Reyero.net
+description = "Set the site into live (production) mode. Disable some devel modules and variable settings."
+package = "Reyero.net - Util"
+project = net_reyero
+core = 7.x
