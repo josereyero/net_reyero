@@ -1,0 +1,34 @@
+<?php
+/**
+ * @param
+ * Reyero.net: Custom modules base API and tools
+ */
+
+/**
+ * Implements hook_system_info_alter()
+ */
+function net_reyero_custom_system_info_alter(&$info, $file, $type) {
+  // Mark some modules as belonging to the 'net_reyero' package:
+  // - Modules in sites/all/modules/custom
+  // - Module info file contains 'custom = true'
+  if (!empty($info['custom']) || $type == 'module' && preg_match('/^sites\/all\/modules\/custom/', $file->filename)) {
+    $info['project'] = 'net_reyero';
+  }
+}
+
+/**
+ * Implements hook_update_projects_alter().
+ */
+function net_reyero_custom_update_projects_alter(&$projects) {
+  // Remove custom projects from drupal.org updates.
+  unset($projects['net_reyero']);
+}
+
+/**
+ * Implements hook_l10n_update_projects_alter().
+ */
+function net_reyero_custom_l10n_update_projects_alter(&$projects) {
+  // Remove custom projects from drupal.org updates.
+  dpm($projects['net_reyero']);
+  unset($projects['net_reyero']);
+}

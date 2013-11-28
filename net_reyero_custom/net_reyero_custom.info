@@ -1,0 +1,5 @@
+name = Custom modules - Reyero.net
+description = "Manage custom modules and themes, prevent them from being updated."
+package = "Reyero.net - Util"
+project = net_reyero
+core = 7.x
