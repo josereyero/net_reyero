@@ -1,0 +1,20 @@
+<?php
+/**
+ * @file
+ * Reyero.net devel helper.
+ */
+
+/**
+ * Debug some queries, tagged as 'debug'
+ *
+ * $query->addTag('debug');
+ *
+ * @param unknown_type $query
+ */
+function net_reyero_devel_query_alter($query) {
+  static $count = 0;
+  if ($query->hasTag('debug')) {
+    dpm((string)$query);
+    dpm($query->arguments(), 'arguments for query ' . $count++);
+  }
+}

@@ -1,0 +1,6 @@
+name = Devel helper
+description = Print out queries marked as 'debug'.
+package = Reyero.net
+core = 7.x
+configure = admin/config/development/devel
+dependencies[] = devel
