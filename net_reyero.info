@@ -1,5 +1,0 @@
-name = Reyero.net - Base
-description = "Base module and API for custom modules"
-package = "Reyero.net"
-project = net_reyero
-core = 7.x
