@@ -8,11 +8,17 @@
  * Implements hook_system_info_alter()
  */
 function net_reyero_custom_system_info_alter(&$info, $file, $type) {
+  $custom_projects = &drupal_static('net_reyero_custom_projects', array('custom'));
   // Mark some modules as belonging to the 'net_reyero' package:
   // - Modules in sites/all/modules/custom
   // - Module info file contains 'custom = true'
   if (!empty($info['custom']) || $type == 'module' && preg_match('/^sites\/all\/modules\/custom/', $file->filename)) {
-    $info['project'] = 'net_reyero';
+    if (!empty($info['project'])) {
+      $custom_projects[] = $info['project'];
+    }
+    else {
+      $info['project'] = 'custom';
+    }
   }
 }
 
@@ -20,8 +26,13 @@ function net_reyero_custom_system_info_alter(&$info, $file, $type) {
  * Implements hook_update_projects_alter().
  */
 function net_reyero_custom_update_projects_alter(&$projects) {
+  $custom_projects = &drupal_static('net_reyero_custom_projects', array('custom'));
   // Remove custom projects from drupal.org updates.
-  unset($projects['net_reyero']);
+  if (!empty($custom_projects)) {
+    foreach (array_unique($custom_projects) as $name) {
+      unset($projects[$name]);
+    }
+  }
 }
 
 /**
@@ -29,5 +40,5 @@ function net_reyero_custom_update_projects_alter(&$projects) {
  */
 function net_reyero_custom_l10n_update_projects_alter(&$projects) {
   // Remove custom projects from drupal.org updates.
-  unset($projects['net_reyero']);
+  net_reyero_custom_update_projects_alter($projects);
 }
