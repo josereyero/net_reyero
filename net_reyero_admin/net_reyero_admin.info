@@ -7,3 +7,4 @@ dependencies[] = admin_menu
 dependencies[] = admin_menu_toolbar
 dependencies[] = module_dep_toggle
 dependencies[] = module_filter
+dependencies[] = net_reyero_custom
