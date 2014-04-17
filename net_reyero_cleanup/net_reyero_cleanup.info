@@ -1,0 +1,8 @@
+name = Site cleanup - Reyero.net
+description = Clean up left over stuff (fields for now).
+package = "Reyero.net - Util"
+project = net_reyero
+core = 7.x
+dependencies[] = devel
+dependencies[] = field_ui
+

@@ -1,0 +1,20 @@
+<?php
+/**
+ * @file
+ * Reyero.net - Util
+ * Clean up left over fields
+ */
+
+/**
+ * Implements hook_menu()
+ */
+function net_reyero_cleanup_menu() {
+  $items['net_reyero/cleanup/fields'] = array(
+    'title' => 'Clean up fields',
+    'page callback' => 'net_reyero_cleanup_fields_page',
+    'access arguments' => array('administer site configuration'),
+    'file' => 'net_reyero_cleanup_fields.inc',
+  );
+  return $items;
+}
+
