@@ -9,11 +9,28 @@
  * Implements hook_menu()
  */
 function net_reyero_cleanup_menu() {
+  // Menu items that are basically just menu blocks.
+  $items['net_reyero/cleanup'] = array(
+    'title' => 'Clean up',
+    'description' => 'Clean up configuration',
+    'position' => 'right',
+    'weight' => -20,
+    'page callback' => 'system_admin_menu_block_page',
+    'access arguments' => array('access administration pages'),
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+  );
   $items['net_reyero/cleanup/fields'] = array(
     'title' => 'Clean up fields',
     'page callback' => 'net_reyero_cleanup_fields_page',
     'access arguments' => array('administer site configuration'),
     'file' => 'net_reyero_cleanup_fields.inc',
+  );
+  $items['net_reyero/cleanup/formats'] = array(
+    'title' => 'Clean up text formats',
+    'page callback' => 'net_reyero_cleanup_formats_page',
+    'access arguments' => array('administer site configuration'),
+    'file' => 'net_reyero_cleanup_formats.inc',
   );
   return $items;
 }
