@@ -1,5 +1,18 @@
 <?php
 /**
  * @file
- * Reyero.net devel helper.
+ * Reyero.net - Admin module
  */
+
+/**
+ * Implements hook_init().
+ */
+function net_reyero_admin_init() {
+  // Switch interface to English for admin pages.
+  if (user_access('administer site configuration') && path_is_admin(current_path())) {
+    $languages = language_list();
+    if (isset($languages['en'])) {
+      $GLOBALS[LANGUAGE_TYPE_INTERFACE] = $languages['en'];
+    }
+  }
+}
